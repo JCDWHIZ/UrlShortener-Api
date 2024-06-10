@@ -1,4 +1,5 @@
-require("dotenv").config();
+require("dotenv").config(); // Load environment variables from .env file
+
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
@@ -6,7 +7,8 @@ const sequelize = new Sequelize(
   process.env.DATABASE_USER,
   process.env.DATABASE_PASSWORD,
   {
-    host: process.env.DATABASE_HOST || "localhost", // Use 'localhost' as default host
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
     dialect: "mysql",
   }
 );
